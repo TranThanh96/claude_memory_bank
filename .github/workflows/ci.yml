@@ -1,0 +1,27 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]   # macOS ships bash 3.2: catches installer portability bugs
+        python: ["3.9", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Installer syntax
+        run: bash -n install.sh
+      - name: JSON config is valid
+        run: |
+          python -c "import json; json.load(open('.claude/settings.json')); json.load(open('.claude/checks.example.json'))"
+      - name: Template passes its own lint
+        run: python scripts/memory-lint.py
+      - name: End-to-end tests
+        run: python -m unittest discover -s tests -v

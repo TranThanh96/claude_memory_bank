@@ -1,0 +1,10 @@
+{
+  "_comment": "Copy to .claude/checks.json and keep only what applies. {file} is the edited file, relative to the project root. Keep every check fast: it runs after each Edit/Write.",
+  "checks": [
+    { "glob": "**/*.py", "command": "ruff check {file}" },
+    { "glob": "**/*.py", "command": "mypy --follow-imports=silent {file}" },
+    { "glob": "**/*.{ts,tsx}", "command": "npx eslint {file}" },
+    { "glob": "**/*.go", "command": "gofmt -l {file} | (! grep .)" },
+    { "glob": ".claude/memory/**", "command": "python3 scripts/memory-lint.py --quiet" }
+  ]
+}
