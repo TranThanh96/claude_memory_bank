@@ -9,3 +9,6 @@
 - Run the relevant tests after a change; never report "done" while tests fail.
 - Large changes (>3 files or any public interface change): present a plan first and wait for approval.
 - Don't add a new dependency without asking first.
+- New session, first request doesn't already make the task clear: ask if they want a progress
+  recap (`session-recap` skill) before starting -- especially valuable when `active.md` never
+  reached this machine.

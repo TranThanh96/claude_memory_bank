@@ -88,7 +88,8 @@ class TemplateTestCase(unittest.TestCase):
 class TestInstaller(TemplateTestCase):
     def test_fresh_install_creates_core_files(self):
         for rel in (".claude/settings.json", ".claude/hooks/session_start.py",
-                    ".claude/skills/update-memory-bank/SKILL.md", "scripts/memory-lint.py"):
+                    ".claude/skills/update-memory-bank/SKILL.md",
+                    ".claude/skills/session-recap/SKILL.md", "scripts/memory-lint.py"):
             self.assertTrue((self.p.root / rel).is_file(), rel)
         json.loads((self.p.root / ".claude/settings.json").read_text())
 

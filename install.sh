@@ -62,6 +62,7 @@ FILES=(
   ".claude/hooks/post_edit_check.py"
   ".claude/skills/update-memory-bank/SKILL.md"
   ".claude/skills/memory-audit/SKILL.md"
+  ".claude/skills/session-recap/SKILL.md"
   ".claude/memory/decisions.md"
   ".claude/memory/patterns.md"
   ".claude/memory/troubleshooting.md"
@@ -78,6 +79,7 @@ TEMPLATE_OWNED=(
   ".claude/hooks/post_edit_check.py"
   ".claude/skills/update-memory-bank/SKILL.md"
   ".claude/skills/memory-audit/SKILL.md"
+  ".claude/skills/session-recap/SKILL.md"
   "scripts/memory-lint.py"
   "scripts/pre_commit_memory_check.py"
 )

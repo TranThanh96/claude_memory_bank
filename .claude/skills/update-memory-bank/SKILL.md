@@ -32,8 +32,9 @@ If the task is finished, delete `active.md` after step 3 instead.
 - A pattern or decision for one module only → that module's path-scoped rule (see memory-files.md)
 
 ## 4. Archive finished tickets (if any)
-Run `python3 scripts/tasks_status.py`. If a feature folder under `.claude/tasks/` has every ticket at
-`status: done`, `git mv` that whole folder in one move to `.claude/tasks/_archive/<feature-slug>/`.
+If `scripts/tasks_status.py` exists (ticket-workflow tier), run it. If a feature folder under
+`.claude/tasks/` has every ticket at `status: done`, `git mv` that whole folder in one move to
+`.claude/tasks/_archive/<feature-slug>/`. Skip this step silently if that tier isn't installed.
 
 ## 5. Verify and report
 - Run `python3 scripts/memory-lint.py`; fix every error.

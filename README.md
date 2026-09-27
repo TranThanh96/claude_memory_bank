@@ -88,6 +88,7 @@ Open a **new** Claude Code session in the project:
 | When | You do | Happens automatically |
 | --- | --- | --- |
 | Start a session (also `/clear`, resume, after compaction) | Nothing | The hook shows Claude `active.md`, when it was written, how many commits landed since, and how many files are uncommitted |
+| New session, task not already clear (e.g. `active.md` never reached this machine) | Say yes when asked | Claude offers a recap; if you agree, `session-recap` summarizes done / in progress / next from `active.md`, `decisions.md`, the ticket board (if installed), and recent commits |
 | While working | Nothing | Claude reads `decisions.md` before design choices, `patterns.md` before implementing, `troubleshooting.md` when debugging — the table in `CLAUDE.md` tells it when. Edits are linted if you set up `checks.json` |
 | You stop, or reach a milestone | Say **"update memory"** (or `/update-memory-bank`) | Claude rewrites `active.md` and records any new decision, pattern or tricky fix; review `git diff -- .claude/memory/` |
 | You commit | Nothing | The pre-commit hook **warns, never blocks**, if a memory file is over budget, cites a path that no longer exists, or memory hasn't been updated for a while |
@@ -145,6 +146,7 @@ rules are in [`.claude/rules/memory-files.md`](.claude/rules/memory-files.md).
 | Rules for editing memory | `.claude/rules/memory-files.md` | Only when a memory file is read (`paths:`) |
 | Work in progress | `.claude/memory/active.md` — local, gitignored | **SessionStart hook**, with its age and the uncommitted-file count |
 | Decisions, patterns, known issues | `.claude/memory/{decisions,patterns,troubleshooting}.md` | Read on demand, per the "Read when" table in `CLAUDE.md` |
+| Cross-machine progress recap | `.claude/skills/session-recap/` | `core-rules.md` tells Claude to offer it when a new session's task isn't already clear — not forced into context, only offered |
 | Memory drift, over-budget files, dead references | `scripts/pre_commit_memory_check.py` | **git pre-commit hook**: warns, for any tool and any developer |
 | Lint/type errors in edited files | `.claude/checks.json` | **PostToolUse hook** feeds failures back to Claude |
 | Secrets, force-push, hard reset | `.claude/settings.json` | `permissions.deny` |
