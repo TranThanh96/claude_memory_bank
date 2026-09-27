@@ -30,6 +30,7 @@
 #     Nothing old is moved or deleted automatically.
 
 set -euo pipefail
+set -x
 
 SELF_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TEMPLATE_DIR="${INIT_MEMORY_BANK_TEMPLATE:-$SELF_DIR}"
