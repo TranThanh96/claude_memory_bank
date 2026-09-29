@@ -21,11 +21,12 @@ Before implementing:
 
 **Minimum code that solves the problem. Nothing speculative.**
 
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
+Before writing new code, apply the decision ladder:
+1. **Reuse**: Does an existing helper, pattern, or utility in this repo already solve this? Reuse it.
+2. **Standard library & native features**: Can language built-ins or the standard library solve this? (Prefer stdlib over adding new dependencies or custom helpers).
+3. **No speculative abstractions**: No features beyond what was asked, no single-use wrappers, no unrequested configurability.
+4. **Surgical brevity**: If you write 200 lines and it could be 50 cleanly, rewrite it. Do not compress code into unreadable one-liners, but eliminate unnecessary ceremony.
+5. **No defensive bloat**: No error handling for impossible internal states; validate strictly only at untrusted boundaries.
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
