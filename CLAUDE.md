@@ -28,7 +28,7 @@
 - <...>
 
 ## Project docs
-<!-- Optional: delete this section if the project has no docs/ directory. -->
+<!-- Placeholder until the project has a docs/ directory; fill in the table once it does. -->
 `docs/` holds long-form documentation the code doesn't speak for itself. Read a file when its row applies:
 
 | File | Read when / Purpose |
