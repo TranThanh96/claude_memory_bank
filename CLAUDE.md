@@ -27,6 +27,14 @@
      things that look wrong but are intentional. One line each. -->
 - <...>
 
+## Project docs
+<!-- Optional: delete this section if the project has no docs/ directory. -->
+`docs/` holds long-form documentation the code doesn't speak for itself. Read a file when its row applies:
+
+| File | Read when / Purpose |
+| --- | --- |
+| `<...>` | `<...>` |
+
 ## Project memory
 `.claude/memory/` holds what the code and git log can't tell you. Read a file when its row applies:
 
@@ -41,3 +49,5 @@
 - Memory can be stale: when it disagrees with the code, trust the code and point out the stale entry.
 - Project facts go here, not in Claude's auto memory (which holds personal preferences only).
 - When compacting, preserve: the list of modified files and the test commands run with their results.
+- Docs/memory sync rule: whenever a file in `docs/` or `.claude/memory/` is edited, check whether its
+  "Read when / Purpose" cell in the tables above still describes it accurately — if not, fix that cell too.
